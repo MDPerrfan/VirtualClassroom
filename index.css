@@ -1,0 +1,187 @@
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        border: none;
+        outline: none;
+        scroll-behavior: smooth;
+        font-family: "";
+        text-align: center;
+    }
+    
+     :root {
+        --bg-color: #d5ecfd;
+        --second-bg-color: #f7edf0dc;
+        --text-color: #3f3e3e;
+        --main-color: rgb(39, 145, 243);
+        --second-color: rgb(248, 82, 22);
+    }
+    
+    body {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        font-size: 62%;
+        overflow-x: hidden;
+    }
+    
+    .header {
+        position: fixed;
+        width: 100%;
+        padding: 1rem 4%;
+        background: rgba(255, 255, 255, 0.3);
+        border-bottom: 2px solid rgba(250, 245, 245, 0.3);
+        backdrop-filter: blur(10px);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 100;
+    }
+    
+    .logo {
+        cursor: pointer;
+        transition: 0.4s ease;
+    }
+    
+    .logo img {
+        width: 20%;
+    }
+    
+    .logo:hover {
+        transform: scale(1.1);
+    }
+    
+    .navbar {
+        display: flex;
+        margin-right: 3rem;
+    }
+    
+    .navbar a {
+        font-size: 1.8rem;
+        color: var(--second-color);
+        margin-left: 4rem;
+        transition: o.4s ease;
+        font-weight: 500;
+        border-bottom: 4px solid transparent;
+        gap: 4rem;
+    }
+    
+    .navbar a:hover,
+    .navbar a.actice {
+        color: rgb(39, 145, 243);
+        border-bottom: 3px solid var(--main-color);
+    }
+    
+    .nav-item {
+        position: relative;
+    }
+    
+    #menu-icon {
+        font-size: 3.5rem;
+        color: var(--main-color);
+        display: none;
+        cursor: pointer;
+    }
+    
+    section {
+        min-height: 100vh;
+        padding: 10rem 9% 10rem;
+    }
+    
+    .heading {
+        color: var(--main-color);
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .about-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        /* Responsive grid */
+        gap: 1.5rem;
+        /* Adjusted gap for better spacing on mobile */
+    }
+    
+    .about-box {
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+        height: 85%;
+        /* Adjusted height for mobile */
+        border-radius: 10px;
+        cursor: pointer;
+        overflow: hidden;
+        transition: 0.4s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .about-box:hover {
+        border: 3px solid var(--main-color);
+        color: #f6610a;
+        transform: scale(1.02);
+    }
+    
+    .about-box .about-info {
+        display: flex;
+        flex-direction: column;
+        padding: 2rem;
+        /* Adjusted padding for mobile */
+        text-align: left;
+        justify-content: center;
+        align-items: baseline;
+        object-fit: cover;
+    }
+    
+    .about-info h4 {
+        font-size: 1.5rem;
+        /* Adjusted font size for mobile */
+        font-weight: 600;
+    }
+    
+    .about-info p {
+        font-size: 1rem;
+        /* Adjusted font size for mobile */
+        margin-top: 2rem;
+        /* Adjusted margin for better spacing on mobile */
+        font-weight: 550;
+    }
+    
+    .about-info img {
+        width: 100%;
+        /* Make the image fill the available width */
+        height: auto;
+        /* Maintain the aspect ratio of the image */
+        object-fit: cover;
+        /* Ensure the image covers the container while maintaining its aspect ratio */
+        border-radius: 8px;
+        /* Optional: Add border-radius for a rounded appearance */
+    }
+    
+    a {
+        text-decoration: none;
+        color: #3f3e3e;
+    }
+    
+    @media screen and (max-width: 1024px) {
+        .navbar {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            left: 80%;
+            top: 100px;
+            gap: 1rem;
+            /* background-color: rgba(255, 255, 255, 0.645); */
+            border-bottom: 2px solid rgba(250, 245, 245, 0.3);
+            z-index: 99;
+        }
+        .navbar.active {
+            display: flex;
+        }
+        .navbar a {
+            margin: 0.5rem 0;
+            text-align: center;
+        }
+        #menu-icon {
+            display: block;
+        }
+    }

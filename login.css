@@ -1,0 +1,125 @@
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: "Trirong", serif;
+    }
+    
+    body {
+        background-color: rgb(170, 220, 248);
+        font-family: 'Asap', sans-serif;
+    }
+    
+    header {
+        background: rgba(255, 255, 255, 0.3);
+        border-bottom: 2px solid rgba(250, 245, 245, 0.3);
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: rgb(31, 131, 225);
+    }
+    
+    header h2 {
+        font-size: 2rem;
+        font-weight: 800;
+    }
+    
+    header>img {
+        width: 50px;
+        transition: 0.3s ease;
+        cursor: pointer;
+    }
+    
+    header img:hover {
+        transform: scale(1.1);
+    }
+    
+    .login {
+        overflow: hidden;
+        background-color: white;
+        padding: 40px 30px 30px 30px;
+        border-radius: 10px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 50%;
+        transform: translate(-50%, -50%);
+        transition: transform 300ms, box-shadow 300ms;
+        box-shadow: 5px 10px 10px rgba(2, 128, 144, 0.2);
+    }
+    
+    .login::before,
+    .login::after {
+        content: '';
+        position: absolute;
+        width: 600px;
+        height: 600px;
+        border-top-left-radius: 40%;
+        border-top-right-radius: 45%;
+        border-bottom-left-radius: 35%;
+        border-bottom-right-radius: 40%;
+        z-index: -1;
+    }
+    
+    .login::before {
+        left: 40%;
+        bottom: -130%;
+        background-color: rgba(69, 105, 144, 0.15);
+        animation: wawes 6s infinite linear;
+    }
+    
+    .login::after {
+        left: 35%;
+        bottom: -125%;
+        background-color: rgba(2, 128, 144, 0.2);
+        animation: wawes 7s infinite;
+    }
+    
+    .login>input {
+        font-family: 'Asap', sans-serif;
+        display: block;
+        border-radius: 5px;
+        font-size: 16px;
+        background: rgb(240, 243, 246);
+        width: 100%;
+        border: 0;
+        padding: 10px 10px;
+        margin: 15px -10px;
+    }
+    
+    #button {
+        font-family: 'Asap', sans-serif;
+        cursor: pointer;
+        color: #fff;
+        font-size: 16px;
+        text-transform: uppercase;
+        width: 80px;
+        border: 0;
+        padding: 10px 0;
+        margin-top: 10px;
+        margin-left: -5px;
+        border-radius: 5px;
+        background-color: rgb(11, 140, 246);
+        transition: background-color 300ms;
+    }
+    
+    .login #button:hover {
+        background-color: rgba(244, 91, 105, 1);
+    }
+    
+    span {
+        color: rgb(0, 140, 255);
+    }
+    
+    a {
+        text-decoration: none;
+    }
+    
+    @keyframes wawes {
+        from {
+            transform: rotate(0);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
