@@ -113,6 +113,8 @@
     
     a {
         text-decoration: none;
+        color: rgba(211, 222, 214, 0.734);
+        font-size: .8rem;
     }
     
     @keyframes wawes {
