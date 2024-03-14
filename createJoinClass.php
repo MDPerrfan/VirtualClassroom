@@ -16,7 +16,7 @@ require 'handler/createJoinClasshandler.php';
 </head>
 <body>
 
-                <div id="first" class="subscribe-box">
+<div id="first" class="subscribe-box">
     <div class="creatClass_header">
         <h1>Create Class</h1>
     </div>
@@ -42,35 +42,32 @@ require 'handler/createJoinClasshandler.php';
 
 
 
-                <div id="second" class="subscribe-box">
-                    <div class="joinClass_header">
-                        <h1>Join class</h1>
-                    </div>
-                     <form class="subscribe" action="createJoinClass.php" method="POST">
-                     <input type="text" name="code" placeholder="Class code" autocomplete="off" value="<?php 
+<div id="second" class="subscribe-box">
+    <div class="joinClass_header">
+        <h1>Join class</h1>
+    </div>
+    <form class="subscribe" action="createJoinClass.php" method="POST">
+         <input type="text" name="code" placeholder="Class code" autocomplete="off" value="<?php 
                                                          if(isset($_SESSION['code'])){
                                                          echo $_SESSION['code'];
                                                                                 } 
                                                                             ?>">
-                        <br>
-                     <button type="submit" name="joinClass_button" id="join_class_button" class="subscribe-button">Join</button>
-                     <br>
-                      <br>
-                      <a href="#" id="createClass" class="createClass">Want to create a new Class? Click here!</a>
-                    </form>
-                </div>
+         <br>
+         <button type="submit" name="joinClass_button" id="join_class_button" class="subscribe-button">Join</button>
+         <br>
+        <br>
+        <a href="#" id="createClass" class="createClass">Want to create a new Class? Click here!</a>
+    </form>
+</div>
 
 </body>
 
 </html>
 
 <script>
-    // jQuery script to show/hide sections
     $(document).ready(function() {
-        $("#first").hide(); // Initially hide the create class section
-        $("#second").show(); // Show the join class section
-
-        // Toggle between Create Class and Join Class sections
+        $("#first").hide();
+        $("#second").show(); 
         $("#createClass").click(function() {
             $("#first").toggle();
             $("#second").toggle();

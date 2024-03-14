@@ -4,8 +4,8 @@
     left: 8px;
     width: 100%;
     height: 100px;
-    background-color: #ceedfc;
-    border-bottom: 0.2em solid #dbe2e5;
+    background: rgba(255, 255, 255, 0.3);
+    border-bottom: 2px solid rgba(250, 245, 245, 0.3);
     margin: -10px 0px 10px -8px;
     position: fixed;
     z-index: 10;

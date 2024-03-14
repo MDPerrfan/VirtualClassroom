@@ -24,8 +24,7 @@
         font-weight: 800;
     }
     
-    header>img {
-        width: 50px;
+    header a img {
         transition: 0.3s ease;
         cursor: pointer;
     }

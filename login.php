@@ -14,7 +14,7 @@ require 'handler/loginhandler.php';
 </head>
 <body>
             <header>
-                <img src="images/Port_City_International_University_Logo.png" alt="PCIU">
+                <a href="index.html"><img src="images/Port_City_International_University_Logo.png" alt="PCIU" style="width: 50px;"></a>
                 <h2>Port City International University</h2>
             </header>
             <div id="first">

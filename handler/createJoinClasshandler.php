@@ -75,10 +75,4 @@ $user2= "";
       header("Location: home.php");
       exit();
 	 }
-    // cancel 
-	 if(isset($_POST['cancel_button'])){
-        header("Location: home.php");
-		exit();
-	 }
-
  ?>
