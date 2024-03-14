@@ -3,9 +3,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(62deg, #030303, #71fab5, #5eef91, #23D5AB);
-    animation: gradient 30s ease infinite;
-    background-size: 400% 400%;
+    background-color: rgb(184, 222, 255);
 }
 
 a {
@@ -15,7 +13,9 @@ a {
 }
 
 .subscribe-box {
-    background: #2bb24c;
+    background: linear-gradient(62deg, #015ec1, #0784b6, #23D5AB);
+    animation: gradient 15s ease infinite;
+    background-size: 400% 400%;
     font-family: 'Gothic A1', serif;
     padding: 6em 0;
     text-align: center;
