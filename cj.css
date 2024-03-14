@@ -3,7 +3,9 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: #cdfad9;
+    background: linear-gradient(62deg, #030303, #71fab5, #5eef91, #23D5AB);
+    animation: gradient 30s ease infinite;
+    background-size: 400% 400%;
 }
 
 a {
@@ -19,7 +21,7 @@ a {
     text-align: center;
     width: 60%;
     border-radius: 10px;
-    box-shadow: 0 0.4px 0.4px rgba(128, 128, 128, 0.109), 0 1px 1px rgba(128, 128, 128, 0.155), 0 2.1px 2.1px rgba(128, 128, 128, 0.195), 0 4.4px 4.4px rgba(128, 128, 128, 0.241), 0 12px 12px rgba(128, 128, 128, 0.35);
+    box-shadow: 0 0.4px 0.4px rgba(128, 128, 128, 0.109), 0 1px 1px rgba(128, 128, 128, 0.155), 0 2.1px 2.1px rgba(128, 128, 128, 0.195), 0 4.4px 4.4px rgba(128, 128, 128, 0.241), 0 5px 5px rgba(128, 128, 128, 0.35);
 }
 
 .subscribe-box h2 {
@@ -113,4 +115,16 @@ a {
     width: 14px;
     opacity: 1;
     transform: translateX(105px);
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
