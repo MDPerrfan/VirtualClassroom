@@ -26,15 +26,15 @@ require 'config.php' ;
 <body>
 	<div class="top_bar">
 		<div class="logo">
-			<a href="index.html" style="text-decoration: none"><img src="images/Port_City_International_University_Logo.png" alt="" style="width: 50px;"></a>
+			<a href="home.php" style="text-decoration: none"><img src="images/Port_City_International_University_Logo.png" alt="" style="width: 50px;"></a>
 		</div>
              <div class="icon">
 					<nav>
-					<a href="<?php echo $userLoggedIn; ?>">
-									<?php echo $user['first_name'] ?>
+					<a href="<?php echo $userLoggedIn; ?>" style="text-decoration: none">Welcome!
+									<span class="name"><?php echo $user['first_name'] ?></span>
 									<span class="tooltiptext">Profile</span>
 					</a>
-					<a href="createJoinClass.php"><i class="fas fa-plus"></i>
+					<a href="createJoinClass.php"><i class="fas fa-chalkboard"></i>
 							<span class="tooltiptext">Create or Join Class</span>
 							</a>
 					</nav>			

@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(62deg, #23A6D5, #57a3c1);
+    animation: gradient 25s ease infinite;
+    background-size: 400% 400%;
+    margin: 0;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+/* 
+.teaching {
+    width: auto;
+    padding: 0 0 0 20px;
+    opacity: 0.88;
+}
+ */
+
+.teaching {
+    margin: 2rem;
+    text-align: center;
+}
+
+.header {
+    background: linear-gradient(62deg, #52eee1, #3cdce7, #23A6D5, #0290bf);
+    animation: gradient 10s ease infinite;
+    background-size: 400% 400%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    text-align: center;
+    width: 5rem;
+    border-radius: 4px;
+    color: #000000;
+}
+
+#nullTeachingEnrolled {
+    padding: 1rem;
+    position: absolute;
+    max-width: 60%;
+    max-height: 11rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 1rem;
+    text-align: center;
+    color: rgb(54, 53, 53);
+    background: rgba(255 255 255 / 82%);
+    box-sizing: border-box;
+}
+
+#nullTeachingEnrolled p {
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.null-button {
+    all: unset;
+    border: 1px solid rgba(0, 0, 0, 0.527);
+    color: rgba(0, 0, 0, 0.493);
+    padding: 0.5rem;
+    margin: 0.5rem auto;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-variant-numeric: tabular-nums;
+    transition: 0.4s ease-in-out;
+    position: relative;
+}
+
+.null-button:hover,
+.null-button:active {
+    font-size: 1.3rem;
+    font-weight: 700;
+    border: 2px solid rgba(0, 0, 0, 0.842);
+    color: rgba(0, 0, 0, 0.842);
+}
+
+.EnrolledclassBox,
+.classBox {
+    margin: 30px;
+    width: 20rem;
+    min-height: 12rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 35px;
+    border: 1px solid rgba(255, 255, 255, .25);
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(15px);
+    transition: transform 0.4s ease;
+    cursor: pointer;
+}
+
+.EnrolledclassBox:hover,
+.classBox:hover {
+    transform: scale(1.04);
+}
+
+.enrolled {
+    margin: 2rem;
+    text-align: center;
+}
+
+
+/* .enrolled {
+    position: relative;
+    left: 20px;
+    margin: 0 auto;
+    top: 100px;
+    width: auto;
+    padding: 5px;
+    opacity: 0.88;
+    padding: 0 0 0 20px;
+}
+ */
+
+
+/* .teaching h3,
+.enrolled h3 {
+    margin: 0 0 1rem 0;
+}
+ */
+
+@keyframes gradient {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}

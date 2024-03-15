@@ -1,46 +1,49 @@
-<?php
-require 'header.php' ;
+<?php 
+include("header.php");
+include("User.php");
+include("classManager.php");
+require 'handler/createJoinClasshandler.php'; // Include the classManager.php file
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome Message</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-
-        .welcome-container {
-            text-align: center;
-            padding: 20px;
-            border-radius: 8px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            color: #3498db;
-        }
-
-        p {
-            color: #555;
-        }
-    </style>
+    <title>Home</title>
+    <link rel="stylesheet" href="home.css">
 </head>
 <body>
-    <div class="welcome-container">
-        <h1>Welcome to Virtual Classroom!</h1>
-        <p>We're glad to have you here. Enjoy your stay.</p>
+    <div class="wrapper">
+        <?php
+        $username = $user['username'];
+        $classManager = new ClassManager($con, $username);
+        $checkTeaching = $classManager->checkTeachingClass();
+        $checkEnrolled = $classManager->checkEnrolledClass();
+
+        if ($checkTeaching) {
+            echo "<div class='teaching'>
+                    <h3><span class='header'>Teaching</span></h3>";
+            $classManager->loadTeachingClasses();
+            echo "</div>";
+        }
+
+        if ($checkEnrolled) {
+            echo "<div class='enrolled'>
+                    <h3><span class='header'>Enrolled:</span></h3>";
+            $classManager->loadEnrolledClasses();
+            echo "</div>";
+        }
+
+        if (!$checkTeaching && !$checkEnrolled) {
+            echo "<div id='nullTeachingEnrolled'>
+                    <p>It seems you haven't created or enrolled in any class yet!</p>
+                    <p>Click the button below or <i class='fas fa-plus' style='padding:0.4rem; color:inherit'></i> above to start with your class</p>
+                    <a href='createJoinClass.php'>
+                        <button class='null-button'>Create/Join</button>
+                    </a>
+                </div>";
+        }
+        ?>
     </div>
 </body>
 </html>

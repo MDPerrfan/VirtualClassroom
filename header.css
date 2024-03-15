@@ -29,6 +29,12 @@ nav {
 }
 
 nav a {
+    text-decoration: none;
+    color: #148bf3;
+    font-size: 1.5rem;
+}
+
+.name {
     position: relative;
     color: #f87415;
     text-decoration: none;
