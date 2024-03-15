@@ -5,10 +5,16 @@
     font-family: 'Times New Roman', Times, serif;
 }
 
+:root {
+    --main: #0a192f;
+    --mainlight: #172a46;
+    --white: #ccd6f6;
+    --cyan: #5ff0d0;
+}
+
 body {
     min-height: 100vh;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     background: linear-gradient(62deg, #23A6D5, #57a3c1);
@@ -17,24 +23,10 @@ body {
     margin: 0;
 }
 
-.wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-
-/* 
 .teaching {
-    width: auto;
-    padding: 0 0 0 20px;
-    opacity: 0.88;
-}
- */
-
-.teaching {
-    margin: 2rem;
+    margin: 4rem;
     text-align: center;
+    display: flex;
 }
 
 .header {
@@ -113,32 +105,17 @@ body {
 .EnrolledclassBox:hover,
 .classBox:hover {
     transform: scale(1.04);
+    color: var(--main);
+    background-color: var(--cyan);
+    cursor: pointer;
+    box-shadow: var(--cyan) 0px 0px 40px;
 }
 
 .enrolled {
-    margin: 2rem;
+    margin: 4rem;
     text-align: center;
+    display: flex;
 }
-
-
-/* .enrolled {
-    position: relative;
-    left: 20px;
-    margin: 0 auto;
-    top: 100px;
-    width: auto;
-    padding: 5px;
-    opacity: 0.88;
-    padding: 0 0 0 20px;
-}
- */
-
-
-/* .teaching h3,
-.enrolled h3 {
-    margin: 0 0 1rem 0;
-}
- */
 
 @keyframes gradient {
     0% {

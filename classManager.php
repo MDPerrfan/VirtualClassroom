@@ -23,7 +23,7 @@ class ClassManager
     public function loadTeachingClasses()
     {
         $this->checkTeaching = true;
-        $str = ""; //String to return 
+        $str = ""; 
         $data_query = mysqli_query($this->con, "SELECT * FROM createclass where username='$this->user' ORDER BY id DESC");
 
         if (mysqli_num_rows($data_query) > 0) {
@@ -56,7 +56,7 @@ class ClassManager
 
     public function loadEnrolledClasses()
     {
-        $str = ""; //String to return 
+        $str = "";
         $data_query = mysqli_query($this->con, "SELECT * FROM createclass where student_array LIKE '%$this->user%' ORDER BY id DESC");
 
         if (mysqli_num_rows($data_query) > 0) {

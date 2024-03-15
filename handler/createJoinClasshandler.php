@@ -15,19 +15,14 @@ $user2= "";
     //create class part
 
 	if(isset($_POST['createClass_button'])){
-		$cName = strip_tags($_POST['className']); //remove html tag
-		$cName = str_replace(' ', '', $cName); //remove spaces
-	    //$_SESSION['className'] = $cName;   // stores class name into session variable 
+		$cName = strip_tags($_POST['className']); 
+		$cName = str_replace(' ', '', $cName); 
         
-        $sec = strip_tags($_POST['section']); //remove html tag
-		$sec = str_replace(' ', '', $sec); //remove spaces
-	    //$_SESSION['section'] = $sec; 
+        $sec = strip_tags($_POST['section']); 
+		$sec = str_replace(' ', '', $sec); 
 
-		$sub = strip_tags($_POST['subject']); //remove html tag
+		$sub = strip_tags($_POST['subject']); 
 		$sub= str_replace(' ', '', $sub);
-		//$_SESSION['subject'] = $sub;
-		
-		
 		
 		$date1 = date("Y-m-d");
 		
@@ -35,7 +30,7 @@ $user2= "";
 		$check_code_query = mysqli_query($con, "SELECT courseCode FROM createclass WHERE courseCode = '$code'");
 			
 		$i = 0;
-		// if code exsits add user number to code
+
 		while (mysqli_num_rows($check_code_query) != 0) {
 			$i++;
 			$code = $code . "_" . $i;
@@ -58,8 +53,8 @@ $user2= "";
 	 //Join class part
 	 
 	 if(isset($_POST['joinClass_button'])){
-		$classCode = strip_tags($_POST['code']); //remove html tag
-		$classCode = str_replace(' ', '', $classCode); //remove spaces
+		$classCode = strip_tags($_POST['code']); 
+		$classCode = str_replace(' ', '', $classCode);
 		 
 		
 		$data_query = mysqli_query($con, "UPDATE createclass SET student_array=CONCAT(student_array,'$userLoggedIn ,') WHERE courseCode='$classCode'");

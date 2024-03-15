@@ -1,8 +1,7 @@
 <?php 
 include("header.php");
-include("User.php");
 include("classManager.php");
-require 'handler/createJoinClasshandler.php'; // Include the classManager.php file
+require 'handler/createJoinClasshandler.php'; 
 ?>
 <!DOCTYPE html>
 <html lang="en">
