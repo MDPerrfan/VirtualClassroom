@@ -32,6 +32,7 @@ nav a {
     text-decoration: none;
     color: #148bf3;
     font-size: 1.5rem;
+    margin: 20px;
 }
 
 .name {
@@ -43,7 +44,7 @@ nav a {
 }
 
 nav a:hover {
-    color: #148bf3;
+    color: #1492f3;
 }
 
 nav i {

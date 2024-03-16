@@ -3,7 +3,10 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: rgb(184, 222, 255);
+    background: url('images/16326569_rm222batch5-mind-06.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 a {

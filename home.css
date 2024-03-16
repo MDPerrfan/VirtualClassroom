@@ -5,21 +5,15 @@
     font-family: 'Times New Roman', Times, serif;
 }
 
-:root {
-    --main: #0a192f;
-    --mainlight: #172a46;
-    --white: #ccd6f6;
-    --cyan: #5ff0d0;
-}
-
 body {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(62deg, #23A6D5, #57a3c1);
-    animation: gradient 25s ease infinite;
-    background-size: 400% 400%;
+    background: url('images/abstract-paper-background-concept.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     margin: 0;
 }
 
@@ -87,28 +81,31 @@ body {
 .EnrolledclassBox,
 .classBox {
     margin: 30px;
-    width: 20rem;
+    width: 17rem;
     min-height: 12rem;
-    display: flex;
+    /*     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; */
+    background: url('images/mouse-near-crayons-with-copy-space.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    backdrop-filter: blur(12px);
     padding: 35px;
     border: 1px solid rgba(255, 255, 255, .25);
     border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.45);
-    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(15px);
-    transition: transform 0.4s ease;
-    cursor: pointer;
+    box-shadow: 0 0.4px 0.4px rgba(128, 128, 128, 0.109), 0 1px 1px rgba(128, 128, 128, 0.155), 0 2.1px 2.1px rgba(128, 128, 128, 0.195), 0 4.4px 4.4px rgba(128, 128, 128, 0.241), 0 5px 5px rgba(128, 128, 128, 0.35);
+    transition: transform 0.4s ease, font-size 0.4s ease;
+    font-size: 1.2rem;
+    color: rgba(2, 157, 36, 0.891);
+    font-weight: 700;
 }
 
 .EnrolledclassBox:hover,
 .classBox:hover {
     transform: scale(1.04);
-    color: var(--main);
-    background-color: var(--cyan);
-    cursor: pointer;
-    box-shadow: var(--cyan) 0px 0px 40px;
+    box-shadow: rgb(85, 218, 195) 0px 0px 40px;
+    font-size: 1.3rem;
 }
 
 .enrolled {
@@ -117,14 +114,9 @@ body {
     display: flex;
 }
 
-@keyframes gradient {
-    0% {
-        background-position: 0 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 1.3rem;
+    margin-bottom: 30px;
 }

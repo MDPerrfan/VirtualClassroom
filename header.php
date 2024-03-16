@@ -2,7 +2,6 @@
 require 'config.php' ;
    if(isset($_SESSION['username'])){
 		 $userLoggedIn  = $_SESSION['username'];
-		 $userLoggedIn2  = $_SESSION['username'];
 		 $user_details_query = mysqli_query($con, "SELECT * FROM users WHERE username = '$userLoggedIn'");
 		 $user = mysqli_fetch_array($user_details_query);
 
@@ -29,16 +28,20 @@ require 'config.php' ;
 			<a href="home.php" style="text-decoration: none"><img src="images/Port_City_International_University_Logo.png" alt="" style="width: 50px;"></a>
 		</div>
              <div class="icon">
-					<nav>
+				<nav>
 					<a href="<?php echo $userLoggedIn; ?>" style="text-decoration: none">Welcome!
 									<span class="name"><?php echo $user['first_name'] ?></span>
 									<span class="tooltiptext">Profile</span>
 					</a>
 					<a href="createJoinClass.php"><i class="fas fa-chalkboard"></i>
 							<span class="tooltiptext">Create or Join Class</span>
-							</a>
-					</nav>			
-				</div>		
-			</div>
+					</a>
+					<a href="logout.php">
+					<i class="fas fa-power-off"></i>
+    				<span class="tooltiptext">Sign out</span>
+					</a>
+				</nav>			
+			</div>		
+		</div>
 	</body>
 </html>
