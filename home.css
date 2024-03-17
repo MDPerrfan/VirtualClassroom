@@ -83,9 +83,6 @@ body {
     margin: 30px;
     width: 17rem;
     min-height: 12rem;
-    /*     display: flex;
-    flex-direction: column;
-    justify-content: center; */
     background: url('images/mouse-near-crayons-with-copy-space.jpg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -119,4 +116,16 @@ a {
     color: #000000;
     font-size: 1.3rem;
     margin-bottom: 30px;
+}
+
+input>#delete_class_btn {
+    padding: 20px;
+    width: 100%;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+input>#delete_class_btn:hover {
+    background-color: #000000;
+    color: white;
 }

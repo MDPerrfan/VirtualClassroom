@@ -51,12 +51,9 @@ $user2= "";
 
 
 	 //Join class part
-	 
 	 if(isset($_POST['joinClass_button'])){
 		$classCode = strip_tags($_POST['code']); 
 		$classCode = str_replace(' ', '', $classCode);
-		 
-		
 		$data_query = mysqli_query($con, "UPDATE createclass SET student_array=CONCAT(student_array,'$userLoggedIn ,') WHERE courseCode='$classCode'");
 		$query1 = mysqli_query($con,"SELECT * FROM users WHERE username='$userLoggedIn'");
 		$fetchQ = mysqli_fetch_array($query1);
@@ -64,9 +61,7 @@ $user2= "";
 		$query2 = mysqli_query($con,"SELECT * FROM createclass WHERE courseCode = '$classCode'");
 		$fetchQ1 = mysqli_fetch_array($query2);
 		$classID = $fetchQ1['id'];
-
 		$query3 = mysqli_query($con, "INSERT INTO joinClass VALUES('$userID','$classID')");
-		
       header("Location: home.php");
       exit();
 	 }

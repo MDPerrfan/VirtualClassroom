@@ -34,11 +34,20 @@ class ClassManager
                 $subject = $row['subject'];
                 $code = $row['courseCode'];
                 $added_by = $row['username'];
+                if ($_SESSION['username']== $added_by) {
+                    $delete_teachingClass = "<a href='delete.php?createClass_id=$id&courseCode=$code'><input type='button' id='delete_class_btn' value='Remove'></a>";
+                } else {
+                    $delete_teachingClass = "";
+                }
+    
                 $str .= "<div class='classBox'>
-                            <a href='classRoom.php?classCode=$code'><h3>$className</h3></a>
-                            Section: $section<br>
-                            $subject<br>
-                        </div>";
+                                    <a href = 'classRoom.php?classCode=$code'> <h3>$className </h3></a> 
+                                    Section: $section
+                                    <br>
+                                    $subject
+                                    <br>
+                                    <p> $delete_teachingClass </p>
+                            </div> ";
             }
             echo $str;
         }
@@ -65,12 +74,16 @@ class ClassManager
                 $section = $row['section'];
                 $subject = $row['subject'];
                 $code = $row['courseCode'];
-
+                $delete_EnrolledClass = "<a href='delete.php?Enrolled_Student=$this->user&amp;classCode=$code'><input type='button' id='delete_class_btn' value='Leave'></a>";
                 $str .= "<div class='EnrolledclassBox'>
-                            <a href='classRoom.php?classCode=$code'><h3>$className</h3></a>
-                            Section: $section<br>
-                            $subject<br>
-                        </div>";
+                           <a href = 'classRoom.php?classCode=$code'> <h3>$className </h3></a>
+                           Section: $section
+                           <br>
+                           $subject
+                           <br>
+                           <p> $delete_EnrolledClass </p>
+                           </a>
+                    </div> ";
             }
             echo $str;
         }
