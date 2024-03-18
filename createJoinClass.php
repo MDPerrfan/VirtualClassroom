@@ -1,7 +1,7 @@
 <?php 
 include("header.php");
 require 'config.php' ;
-require 'handler/createJoinClasshandler.php';
+require 'createJoinClasshandler.php';
 ?>
 
 <!DOCTYPE html>

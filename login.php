@@ -1,6 +1,6 @@
 <?php
 require 'config.php';
-require 'handler/loginhandler.php';
+require 'loginhandler.php';
 ?>
 
 <html>

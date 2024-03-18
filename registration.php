@@ -1,6 +1,6 @@
 <?php 
 require 'config.php';
-require 'handler/registerhandler.php';
+require 'registerhandler.php';
 ?>
 <html>
 <head>

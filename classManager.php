@@ -41,7 +41,7 @@ class ClassManager
                 }
     
                 $str .= "<div class='classBox'>
-                                    <a href = 'classRoom.php?classCode=$code'> <h3>$className </h3></a> 
+                                    <a href = 'insideClassroom.php?classCode=$code'> <h3>$className </h3></a> 
                                     Section: $section
                                     <br>
                                     $subject
@@ -76,7 +76,7 @@ class ClassManager
                 $code = $row['courseCode'];
                 $delete_EnrolledClass = "<a href='delete.php?Enrolled_Student=$this->user&amp;classCode=$code'><input type='button' id='delete_class_btn' value='Leave'></a>";
                 $str .= "<div class='EnrolledclassBox'>
-                           <a href = 'classRoom.php?classCode=$code'> <h3>$className </h3></a>
+                           <a href = 'insideClassroom.php?classCode=$code'> <h3>$className </h3></a>
                            Section: $section
                            <br>
                            $subject
