@@ -22,15 +22,15 @@ require 'createJoinClasshandler.php';
     </div>
     <form class="subscribe" action="createJoinClass.php" method="POST">
         <div class="form-input-material">
-            <input type="text" name="className" autocomplete="off" placeholder="Class Name/Course Code" class="form-control-material" value="">
+            <input type="text" name="className" autocomplete="off" placeholder="Class Name/Course Code"  value="">
             <label for="className"></label>
         </div>
         <div class="form-input-material">
-            <input type="text" name="section" autocomplete="off" placeholder="Section" class="form-control-material" value="">
+            <input type="text" name="section" autocomplete="off" placeholder="Section"  value="">
             <label for="section"></label>
         </div>
         <div class="form-input-material">
-            <input type="text" name="subject" autocomplete="off" placeholder="Subject/Course Title" class="form-control-material" value="">
+            <input type="text" name="subject" autocomplete="off" placeholder="Subject/Course Title" value="">
             <label for="subject"></label>
         </div>
         <button type="submit" name="createClass_button" id="create_class_button" class="subscribe-button btn btn-primary btn-ghost">Create</button>

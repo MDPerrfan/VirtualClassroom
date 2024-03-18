@@ -1,7 +1,6 @@
 <?php 
 include("header.php");
 include("classManager.php");
-require 'handler/createJoinClasshandler.php'; 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,8 +36,7 @@ require 'handler/createJoinClasshandler.php';
 
         if (!$checkTeaching && !$checkEnrolled) {
             echo "<div id='nullTeachingEnrolled'>
-                    <p>It seems you haven't created or enrolled in any class yet!</p>
-                    <p>Click the button below or <i class='fas fa-plus' style='padding:0.4rem; color:inherit'></i> above to start with your class</p>
+                    <p>Oops! You are not in any class</p>
                     <a href='createJoinClass.php'>
                         <button class='null-button'>Create/Join</button>
                     </a>

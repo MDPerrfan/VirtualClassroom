@@ -1,0 +1,95 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    background: url('images/orange-background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 100vh;
+    gap: 4rem;
+}
+
+.Wrapper {
+    margin-top: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.user_details {
+    width: 20rem;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    color: #097d0d;
+    background: url('images/green-desk-with-stationery-top-view-copypace.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: 0 0.4px 0.4px rgba(128, 128, 128, 0.109), 0 1px 1px rgba(128, 128, 128, 0.155), 0 2.1px 2.1px rgba(128, 128, 128, 0.195), 0 4.4px 4.4px rgba(128, 128, 128, 0.241), 0 5px 5px rgba(128, 128, 128, 0.35);
+}
+
+.assignment_box {
+    margin-top: 20px;
+}
+
+.people_column {
+    width: 20rem;
+    padding: 20px;
+    border-radius: 5px;
+    font-size: 1.4rem;
+    color: #c9c9c9;
+    background: url('images/orange-background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: 0 0.4px 0.4px rgba(128, 128, 128, 0.109), 0 1px 1px rgba(128, 128, 128, 0.155), 0 2.1px 2.1px rgba(128, 128, 128, 0.195), 0 4.4px 4.4px rgba(128, 128, 128, 0.241), 0 5px 5px rgba(128, 128, 128, 0.35);
+}
+
+.main {
+    padding: 20px;
+    background: url('images/fading-blue-background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: 0 0.4px 0.4px rgba(128, 128, 128, 0.109), 0 1px 1px rgba(128, 128, 128, 0.155), 0 2.1px 2.1px rgba(128, 128, 128, 0.195), 0 4.4px 4.4px rgba(128, 128, 128, 0.241), 0 5px 5px rgba(128, 128, 128, 0.35);
+    border-radius: 10px;
+    width: 50%;
+    color: #edfcee;
+}
+
+#post_text_area,
+#assignment-textarea {
+    width: 93%;
+    height: 70px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+}
+
+#assignment-upload-button {
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+#assignment-upload-button:hover {
+    background-color: #45a049;
+}
+
+#fileToUpload {
+    margin-bottom: 10px;
+}
+
+#second {
+    display: none;
+}

@@ -34,7 +34,7 @@ $user2= "";
 		$username1 =  $user['username'];	
 
 		if(($cName != "") && ($sec != "") && ($sub != "")){
-			$query = mysqli_query($con, "INSERT INTO createclass VALUES('', '$username1', '$cName', '$sec','$sub', '$code', '$date1', '', '' )");
+			$query = mysqli_query($con, "INSERT INTO createclass VALUES('', '$username1', '$cName', '$sec','$sub', '$code', '$date1', '')");
 		}
 
 		$_SESSION['className'] = "";
