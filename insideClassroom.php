@@ -59,7 +59,7 @@ if (isset($_POST['upload'])) {
                 $post->submitPost($_POST['assignment_text'], $fileNameNew, $fileDestination,$teacherName);
                 //$post->getFileDestination($fileDestination); 
 
-                header("Location: classRoom.php?classCode=$classCode&uploadsuccess");
+                header("Location: insideClassroom.php?classCode=$classCode&uploadsuccess");
             } else {
                 echo "your file is too big";
             }
@@ -81,31 +81,25 @@ if (isset($_POST['upload'])) {
     <link rel="stylesheet" href="class.css">
 </head>
 <body>
-<div class="Wrapper">
+<div class="Wrapper2">
     <div class="user_details">
         <center><h1> <i class="fa fa-chalkboard"></i> <?php echo $courseName ?></h1></center>
         <p style='line-height:30px; display: inline-block;'><b>Section:</b> <?php echo $sec ?>
             <br>
             <b>Class Code:</b> <?php echo $classCode ?>
         </p>
-     <!--    <div class="assignment_box">
-            <a href="#" id="postBtn"><i class="fab fa-megaport" style='margin-right: 5px;'></i>Post</a>
-            <a href="#" id="assignmentBtn"><i class="far fa-file-word" style='margin-right: 5px;'></i>Assignment Section</a>
-            <?php  if(isset($_POST['upload'])) {
-             echo'<span class="assgn-Btn_notification_badge" id="unread_notification"></span>';   
-            }?>
-        </div> -->
     </div>
     <div class="people_column">
        <h4>Instructor:</h4><a href="<?php echo $teacherName; ?>"><img src='<?php echo $teacherDetails['profilePic'] ?>' width='40'><?php echo $teacherDetails['first_name'] . " " . $teacherDetails['last_name'] ?></a>
         <br>
     <?php 
-        $stundentsName  = new User($con, $classCode ,$userLoggedIn);
-        echo "<p><b>Class Members:</b> </p>"; ?>
-             <?php $stundentsName->getStudentsInfo($classID); ?>
+        $classMates = $user_array['student_array'];
+        $classMates = str_replace(',', ' ', $classMates);
+        echo "<p><b>Class Members:<br></b> $classMates </p>";
+        ?>
     </div>
 </div>
-<div class="main">
+<div class="main2">
         <div id="first">
             <form class="post_form" method="POST">
                 <textarea name='post_text' id='post_text_area' placeholder='Share your thoughts'></textarea>
@@ -121,7 +115,7 @@ if (isset($_POST['upload'])) {
             <form class="assignment_form" method="POST" enctype="multipart/form-data">
                 <input type="file" name="file" id="fileToUpload">
                 <textarea name='assignment_text' id='assignment-textarea' placeholder='Type here'></textarea>
-                <a href='insideClassroom.php?classCode=$courseCode'><input type='submit' name='upload' id='assignment-upload-button' value='Upload'></a>
+                <a href='insideClassroom.php'><input type='submit' name='upload' id='assignment-upload-button' value='Upload'></a>
                 <hr>
             </form>
             <?php

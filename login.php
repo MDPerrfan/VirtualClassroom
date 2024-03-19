@@ -19,11 +19,7 @@ require 'loginhandler.php';
             </header>
             <div id="first">
                 <form class="login" action="login.php" method="POST" id="login-form">
-                <input type="email" name="log_email" placeholder="Email address" value="<?php 
-                                                                                            if (isset($_SESSION['log_email'])) {
-                                                                                                echo $_SESSION['log_email'];
-                                                                                            }
-                                                                                            ?>" required>
+                <input type="email" name="log_email" placeholder="Email address" value="" required>
                     <br>
 
                     <input type="password" name="log_password" placeholder="Password">

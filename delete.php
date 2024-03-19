@@ -10,8 +10,13 @@ if (isset($_GET['createClass_id'])) {
 }
 
 if (isset($_GET['Enrolled_Student'])) {
-	$enrolled_Student = $_GET['Enrolled_Student'];
-	$courseCode = $_GET['classCode'];
-	$query = mysqli_query($con, "UPDATE createclass SET student_array = REPLACE(student_array, '$enrolled_Student', '') WHERE courseCode LIKE '$courseCode' AND student_array  LIKE '%$enrolled_Student%'");
-	header("Location: home.php");
+    $enrolled_Student = $_GET['Enrolled_Student'];
+    $courseCode = $_GET['classCode'];
+    $delete_query = "DELETE FROM joinclass WHERE class_id_fk = (SELECT id FROM createclass WHERE courseCode = '$courseCode')";
+    mysqli_query($con, $delete_query);
+    $update_query = "UPDATE createclass SET student_array = REPLACE(student_array, '$enrolled_Student', '') WHERE courseCode LIKE '$courseCode' AND student_array  LIKE '%$enrolled_Student%'";
+    mysqli_query($con, $update_query);
+
+    header("Location: home.php");
 }
+?>

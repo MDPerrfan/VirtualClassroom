@@ -92,6 +92,7 @@ class Post
                 // Add the HTML for displaying the file
                 $str .= "<div class='file'>";
                 $str .= "<a href='download.php?file=$path' download='$path'>$path</a>";
+                $str .= "<p>$body</p>";
                 $str .= "</div>";
             }
         }

@@ -3,7 +3,6 @@ class ClassManager
 {
     private $con;
     private $user;
-
     public function __construct($con, $user)
     {
         $this->con = $con;
@@ -35,7 +34,17 @@ class ClassManager
                 $code = $row['courseCode'];
                 $added_by = $row['username'];
                 if ($_SESSION['username']== $added_by) {
-                    $delete_teachingClass = "<a href='delete.php?createClass_id=$id&courseCode=$code'><input type='button' id='delete_class_btn' value='Remove'></a>";
+                    $delete_teachingClass = "<a href='delete.php?createClass_id=$id&courseCode=$code'><input type='button' id='delete_class_btn' value='Remove'style='background-color: #4CAF50; 
+                    border: none;
+                    color: white;
+                    border-radius:3px;
+                    padding: 5px 9px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 16px;
+                    margin-top:15px;
+                    cursor: pointer;'></a>";
                 } else {
                     $delete_teachingClass = "";
                 }
@@ -74,8 +83,18 @@ class ClassManager
                 $section = $row['section'];
                 $subject = $row['subject'];
                 $code = $row['courseCode'];
-                $delete_EnrolledClass = "<a href='delete.php?Enrolled_Student=$this->user&amp;classCode=$code'><input type='button' id='delete_class_btn' value='Leave'></a>";
-                $str .= "<div class='EnrolledclassBox'>
+                $delete_EnrolledClass = "<a href='delete.php?Enrolled_Student=$this->user&amp;classCode=$code'><input type='button' id='delete_class_btn' value='Leave' style='background-color: #4CAF50; 
+              border: none;
+              color: white;
+              border-radius:3px;
+              padding: 5px 9px;
+              text-align: center;
+              text-decoration: none;
+              display: inline-block;
+              font-size: 16px;
+              margin-top:15px;
+              cursor: pointer;'></a>";
+              $str .= "<div class='EnrolledclassBox'>
                            <a href = 'insideClassroom.php?classCode=$code'> <h3>$className </h3></a>
                            Section: $section
                            <br>
