@@ -19,63 +19,34 @@ class User {
         return $this->user['username'];
     }
 
+    public function getCourseCode() {
+        return $this->code['courseCode'];
+    }
     public function getFirstAndLastName() {
         $username = $this->user['username'];
         $query = mysqli_query($this->con, "SELECT first_name, last_name FROM users WHERE username='$username'");
         $row = mysqli_fetch_array($query);
         return $row['first_name'] . " " . $row['last_name'];
     }
-
-    public function getStudentsName($array){
-        $length = count($array);
-        for($i = 0; $i < $length ; $i++){
-            $student = $array[$i]; 
-            $query = mysqli_query($this->con, "SELECT first_name, last_name FROM users WHERE username='$student'");
-            $row = mysqli_fetch_array($query);
-            echo $row['first_name'] . " " . $row['last_name']."<br>";
-        }
-    }
-
-    public function getStudentsUserName($array){
-        $length = count($array);
-        for($i = 0; $i < $length ; $i++){
-            $student = $array[$i]; 
-            echo $student;
-        }
-    }
-
-    public function getStudentsInfo($classID){
-        $query  = mysqli_query($this->con,"SELECT first_name, last_name FROM joinClass INNER JOIN users ON users.id = joinClass.user_id_fk INNER JOIN createclass ON createclass.id = joinClass.class_id_fk WHERE  joinClass.class_id_fk = '$classID' ");
-        $str ="";   
-        if (mysqli_num_rows($query) > 0) {
-            while ($row = mysqli_fetch_array($query)) {
-                $firstName = $row['first_name'];
-                $lastName = $row['last_name'];
-                $fullName = $firstName.' '.$lastName;
-                $str .="<p id='studentInfo'>
-                                $fullName
-                         </p>";
-            } 
-            echo $str;
-        }
-    }
-
-    public function getCourseCode() {
-        return $this->code['courseCode'];
-    }
-
     public function isStudent($username_to_check) {
-        $usernameComma = "," . $username_to_check . ",";
-
-        if(strstr($this->user2['student_array'], $usernameComma) || $username_to_check == $this->user2['username']) {
-            return true;
+        // Check if user2 is set and student_array is not null
+        if(isset($this->user2) && isset($this->user2['student_array']) && $this->user2['student_array'] !== null) {
+            $usernameComma = "," . $username_to_check . ",";
+            if(strstr($this->user2['student_array'], $usernameComma) || $username_to_check == $this->user2['username']) {
+                return true;
+            }
         }
-        elseif(strstr($this->code['student_array'], $usernameComma)){
-            return true;
+    
+        // Check if code is set and student_array is not null
+        if(isset($this->code) && isset($this->code['student_array']) && $this->code['student_array'] !== null) {
+            $usernameComma = "," . $username_to_check . ",";
+            if(strstr($this->code['student_array'], $usernameComma)) {
+                return true;
+            }
         }
-        else {
-            return false; // corrected to return false if not a student
-        }
+    
+        return false; // Return false if not a student
     }
+    
 }
 ?>

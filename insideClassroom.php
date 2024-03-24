@@ -2,6 +2,7 @@
 include("header.php");
 include("User.php");
 include("postAndassignment.php");
+include("classManager.php");
 $user_array = "";
 $courseName = "";
 $sec = "";
@@ -95,7 +96,7 @@ if (isset($_POST['upload'])) {
     <?php 
         $classMates = $user_array['student_array'];
         $classMates = str_replace(',', ' ', $classMates);
-        echo "<p><b>Class Members:<br></b> $classMates </p>";
+        echo "<p><b>Class Members:</b> $classMates <br></p>";
         ?>
     </div>
 </div>
