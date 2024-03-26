@@ -73,6 +73,15 @@ if (isset($_POST['upload'])) {
 $username=$user['username'];
 $classManager = new ClassManager($con, $username);
 $checkTeaching = $classManager->checkTeachingClass();
+if (isset($_POST['mark'])) {
+    $postID = $_POST['post_id'];
+    $marks = $_POST['marks'];
+
+    // Perform database operations to store marks
+    // Assuming you have a function like markAssignment in your Post class
+    $post = new Post($con, $userLoggedIn, $classCode);
+    $post->markAssignment($postID, $marks);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

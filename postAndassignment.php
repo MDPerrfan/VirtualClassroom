@@ -179,10 +179,10 @@ class Post
     }
     
     public function loadFiles()
-        {
+    {
         $userLoggedIn = $this->user_obj->getUsername();
         $str = ""; // String to return
-   
+    
         $data_query = mysqli_query($this->con, "SELECT * FROM posts WHERE courseCode='$this->code' AND files != 'none' ORDER BY id DESC");
     
         if (mysqli_num_rows($data_query) > 0) {
@@ -193,16 +193,41 @@ class Post
                 $date_time = $row['date_added'];
                 $file = $row['files'];
                 $path = $row['fileDestination'];
+                $marks = $row['marks']; 
                 // Add the HTML for displaying the file
                 $str .= "<div class='file'>";
                 $str .= "<a href='download.php?file=$path' download='$path'>$path</a>";
                 $str .= "<p>$body</p>";
-                $str .= "</div>";         
+                if ($marks !== null) {
+                    $str .= "<p style='color:maroon;font-weight:700;'>Marks: $marks</p>";
+                } else {
+                    // Add the marking form only if marks are not present
+                    $str .= "<form class='marking_form' method='POST'>";
+                    $str .= "<input type='hidden' name='post_id' value='$id'>";
+                    $str .= "<input type='number' name='marks' placeholder='Enter marks'>";
+                    $str .= "<input type='submit' name='mark' value='Mark Assignment'>";
+                    $str .= "</form>";
+                }
+                $str .= "</div>";
+            }
+        } else {
+            $str = "<p>No files found.</p>";
         }
-        echo $str;
-    } 
     
-}
+        echo $str;
+    }
+    
+    public function markAssignment($postId, $marks)
+    {
+        // Sanitize input data
+        $postId = mysqli_real_escape_string($this->con, $postId);
+        $marks = mysqli_real_escape_string($this->con, $marks);
+    
+        // Update the marks in the database
+        $query = "UPDATE posts SET marks = '$marks' WHERE id = '$postId'";
+        $result = mysqli_query($this->con, $query);
+    }
+        
 public function loadFiles1()
 {
 $userLoggedIn = $this->user_obj->getUsername();
@@ -218,10 +243,18 @@ if (mysqli_num_rows($data_query) > 0) {
         $date_time = $row['date_added'];
         $file = $row['files'];
         $path = $row['fileDestination'];
+        $marks = $row['marks'];
         // Add the HTML for displaying the file
         $str .= "<div class='file'>";
         $str .= "<h3>$path</h3>";
         $str .= "<p>$body</p>";
+        if ($marks !== null) {
+            $str .= "<p style='color:maroon;font-weight:700;'>Marks: $marks</p>";
+        }
+        else{
+            $str.="<p style='color:maroon;font-weight:700;'>Assignment has not been marked!</p>";
+
+        }
         $str .= "</div>";         
 }
 echo $str;
