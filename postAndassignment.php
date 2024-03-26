@@ -78,7 +78,12 @@ class Post
                     $user_to_name = $user_to_obj->getFirstAndLastName();
                     $user_to = "to <a href='" . $row['user_to'] . "'>" . $user_to_name . "</a>";
                 }
-    
+                					
+					if ($userLoggedIn == $added_by) {
+						$deletePost_button = "<a  href='delete.php?post_id=$id&amp;classCode=$this->code'><input style='background:red;color:white;cursor:pointer;border:none;border-radius:2px;padding:3px;' id='delete_post_btn' type='button' value='Delete'></a>";
+					} else {
+						$deletePost_button = "";
+					}
                 $user_logged_obj = new User($this->con, $this->code, $userLoggedIn);
                 if ($user_logged_obj->getUsername($added_by)) {
     
@@ -162,7 +167,8 @@ class Post
                                     <a style='text-decoration:none;color:#2c2c2c;font-size:1.3rem;' href='$added_by'> $first_name $last_name </a> &nbsp;&nbsp;<span style='font-size: 14px; '>$time_message </span>
                                 </div>
                                 <div id='post_body'>
-                                    <p>$body</p>
+                                    <p>$body $deletePost_button</p>
+                                    
                                 </div>
                                 <div class='commentOption' onClick='javascript:toggle$id()'> 
                                     Comments($comments_check_num)<span class='edited-det'> </span> 
@@ -196,22 +202,18 @@ class Post
                 $marks = $row['marks']; 
                 // Add the HTML for displaying the file
                 $str .= "<div class='file'>";
-                $str .= "<a href='download.php?file=$path' download='$path'>$path</a>";
+                $str .= "<a style='text-decoration:none;color:maroon;font-size:1.4rem;' href='download.php?file=$path' download='$path'>$path</a>";
                 $str .= "<p>$body</p>";
                 if ($marks !== null) {
                     $str .= "<p style='color:maroon;font-weight:700;'>Marks: $marks</p>";
                 } else {
                     // Add the marking form only if marks are not present
-                    $str .= "<form class='marking_form' method='POST'>";
+                    $str .= "<form method='POST'>";
                     $str .= "<input type='hidden' name='post_id' value='$id'>";
-                    $str .= "<input type='number' name='marks' placeholder='Enter marks'>";
-                    $str .= "<input type='submit' name='mark' value='Mark Assignment'>";
+                    $str .= "<input style='font-size:1.2rem;border-radius:3px;border:none;margin:3px;' type='number' name='marks' placeholder='Enter marks'>";
+                    $str .= "<input style='font-size:1.2rem;border-radius:3px;border:none;margin:3px;cursor:pointer;' type='submit' name='mark' value='Mark Assignment'>";
                     $str .= "</form>";
                 }
-    
-                // Add delete button
-                $str .= "<button style='text-decoration:none;background:red;padding:3px;color:white;'><a href='delete.php?post_id=$id'>Delete</a></button>";
-
     
                 $str .= "</div>";
             }

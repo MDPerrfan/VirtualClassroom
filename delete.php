@@ -2,15 +2,15 @@
 include ("config.php");
 if (isset($_GET['post_id'])) {
 	$post_id = $_GET['post_id'];
+	$courseCode = $_GET['classCode'];
+
 	$query = mysqli_query($con, "DELETE FROM posts WHERE id='$post_id'");
+	header("Location: insideClassroom.php?classCode=$courseCode");
 }
-
-
 if(isset($_GET['comment_id'])){
 	$id = $_GET['comment_id'];
 	$post_id = $_GET['post_id'];
 	$courseCode = $_GET['classCode'];
-	
 	$query = mysqli_query($con, "DELETE FROM comments WHERE id='$id'");
 	header("Location: comment.php?post_id=$post_id");
   }
