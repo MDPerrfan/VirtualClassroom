@@ -38,7 +38,7 @@ if ($checkTeaching) {
 
 if ($checkEnrolled) {
     echo "<div class='enrolled'>
-            <h3><span class='header'>Enrolled:</span></h3>";
+            <h3><span class='header'>Class Enrolled In  :</span></h3>";
     $classManager->loadEnrolledClasses();
     echo "</div>";
 }
