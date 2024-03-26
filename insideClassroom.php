@@ -8,7 +8,6 @@ $courseName = "";
 $sec = "";
 $body = "";
 $post_id = "";
-$searchedPost = "";
 
 //fetching class room details
 $classCode = $_GET['classCode'];
@@ -71,7 +70,9 @@ if (isset($_POST['upload'])) {
         echo "You can't upload file of this";
     }
 }
-
+$username=$user['username'];
+$classManager = new ClassManager($con, $username);
+$checkTeaching = $classManager->checkTeachingClass();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -121,14 +122,19 @@ if (isset($_POST['upload'])) {
             </form>
             <?php
             $post = new Post($con, $userLoggedIn, $classCode);
-            $post->loadFiles();
+            if($checkTeaching){
+                $post->loadFiles();
+            }
+            else{
+                $post->loadFiles1();
+            }
             ?>
         </div>
         <button id="assignment-button">Assignment</button>
         <button id="post-button" style="display: none;">Post</button>
     </div>
 
-<script>
+    <script>
     const assignmentButton = document.getElementById('assignment-button');
     const postButton = document.getElementById('post-button');
     const firstSection = document.getElementById('first');
@@ -144,9 +150,10 @@ if (isset($_POST['upload'])) {
     postButton.addEventListener('click', function() {
         firstSection.style.display = 'block';
         secondSection.style.display = 'none';
-        assignmentButton.style.display = 'block';
+        assignmentButton.style.display = 'block'; // Show assignment button when post button is clicked
         postButton.style.display = 'none';
     });
 </script>
+
 </body>
 </html>

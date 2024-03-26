@@ -1,4 +1,5 @@
 <?php
+
 class Post
 {
     private $user;
@@ -155,10 +156,10 @@ class Post
     
                    
     
-                    $str .= "<div class='status_post'>
+                    $str .= "<div class='status_post' style='font-size:1.3rem;'>
                              
-                                <div class='posted_by' style='color:#ACACAC;'>
-                                    <a href='$added_by'> $first_name $last_name </a> &nbsp;&nbsp;<span style='font-size: 12px; '>$time_message </span>
+                                <div class='posted_by' style='color:gray;'>
+                                    <a style='text-decoration:none;color:#2c2c2c;font-size:1.3rem;' href='$added_by'> $first_name $last_name </a> &nbsp;&nbsp;<span style='font-size: 14px; '>$time_message </span>
                                 </div>
                                 <div id='post_body'>
                                     <p>$body</p>
@@ -192,16 +193,40 @@ class Post
                 $date_time = $row['date_added'];
                 $file = $row['files'];
                 $path = $row['fileDestination'];
-    
                 // Add the HTML for displaying the file
                 $str .= "<div class='file'>";
                 $str .= "<a href='download.php?file=$path' download='$path'>$path</a>";
                 $str .= "<p>$body</p>";
-                $str .= "</div>";          
+                $str .= "</div>";         
         }
         echo $str;
     } 
     
+}
+public function loadFiles1()
+{
+$userLoggedIn = $this->user_obj->getUsername();
+$str = ""; // String to return
+
+$data_query = mysqli_query($this->con, "SELECT * FROM posts WHERE courseCode='$this->code' AND files != 'none' ORDER BY id DESC");
+
+if (mysqli_num_rows($data_query) > 0) {
+    while ($row = mysqli_fetch_array($data_query)) {
+        $id = $row['id'];
+        $body = $row['body'];
+        $added_by = $row['added_by'];
+        $date_time = $row['date_added'];
+        $file = $row['files'];
+        $path = $row['fileDestination'];
+        // Add the HTML for displaying the file
+        $str .= "<div class='file'>";
+        $str .= "<h3>$path</h3>";
+        $str .= "<p>$body</p>";
+        $str .= "</div>";         
+}
+echo $str;
+} 
+
 }
 }
 ?>
