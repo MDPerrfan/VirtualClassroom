@@ -1,16 +1,11 @@
 <?php
 include ("config.php");
-//Delete only post
 if (isset($_GET['post_id'])) {
 	$post_id = $_GET['post_id'];
-	$courseCode = $_GET['classCode'];
-
 	$query = mysqli_query($con, "DELETE FROM posts WHERE id='$post_id'");
-	header("Location: ../../classRoom.php?classCode=$courseCode");
 }
 
 
-//Delete Comment
 if(isset($_GET['comment_id'])){
 	$id = $_GET['comment_id'];
 	$post_id = $_GET['post_id'];
@@ -20,14 +15,7 @@ if(isset($_GET['comment_id'])){
 	header("Location: comment.php?post_id=$post_id");
   }
 
-//Delete only file or assignment
-if (isset($_GET['postid'])) {
-	$post_id = $_GET['postid'];
-	$courseCode = $_GET['classCode'];
 
-	$query = mysqli_query($con, "DELETE FROM posts WHERE id='$post_id'");
-	header("Location: ../../classRoom.php?classCode=$courseCode&uploadsuccess");
-}
 if (isset($_GET['createClass_id'])) {
 	$createClass_id = $_GET['createClass_id'];
 	$courseCode = $_GET['courseCode'];

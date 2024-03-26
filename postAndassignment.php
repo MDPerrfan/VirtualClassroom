@@ -50,7 +50,7 @@ class Post
             // Get course Code
             $course_code = $this->user_obj->getCourseCode();
             // Insert post
-            $query = mysqli_query($this->con, "INSERT INTO posts VALUES('', '$body', '$added_by','$this->code', '$user_to', '$date_added', '$fileName','$fileDestination')");
+            $query = mysqli_query($this->con, "INSERT INTO posts VALUES('', '$body', '$added_by','$this->code', '$user_to', '$date_added', '$fileName','$fileDestination',NULL)");
         }
     }
 
@@ -208,6 +208,11 @@ class Post
                     $str .= "<input type='submit' name='mark' value='Mark Assignment'>";
                     $str .= "</form>";
                 }
+    
+                // Add delete button
+                $str .= "<button style='text-decoration:none;background:red;padding:3px;color:white;'><a href='delete.php?post_id=$id'>Delete</a></button>";
+
+    
                 $str .= "</div>";
             }
         } else {
@@ -216,6 +221,7 @@ class Post
     
         echo $str;
     }
+    
     
     public function markAssignment($postId, $marks)
     {
@@ -248,7 +254,7 @@ if (mysqli_num_rows($data_query) > 0) {
         $str .= "<div class='file'>";
         $str .= "<h3>$path</h3>";
         $str .= "<p>$body</p>";
-        if ($marks !== null) {
+        if ($marks !==Null) {
             $str .= "<p style='color:maroon;font-weight:700;'>Marks: $marks</p>";
         }
         else{

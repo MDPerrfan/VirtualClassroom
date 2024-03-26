@@ -20,7 +20,7 @@
 			
         }
 		body::-webkit-scrollbar {
-    width: 10px; /* Width of the scrollbar */
+    width: 10px;
 }
         .comment_section {
             margin-bottom: 20px;
@@ -112,7 +112,7 @@
         </script>
 
         <?php 
-		//Get id of post
+
 		if (isset($_GET['post_id'])) {
 			$post_id = $_GET['post_id'];
 		}
