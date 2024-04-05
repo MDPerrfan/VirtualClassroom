@@ -36,6 +36,10 @@ require 'config.php' ;
 					<a href="createJoinClass.php"><i class="fas fa-chalkboard"></i>
 							<span class="tooltiptext">Create or Join Class</span>
 					</a>
+					<a href="home.php">
+						<i class="fas fa-home">
+							<span class="tooltiptext">Home</span></i>
+					</a>
 					<a href="logout.php">
 					<i class="fas fa-power-off"></i>
     				<span class="tooltiptext">Sign out</span>

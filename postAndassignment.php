@@ -214,7 +214,7 @@ class Post
                     $str .= "<input style='font-size:1.2rem;border-radius:3px;border:none;margin:3px;cursor:pointer;' type='submit' name='mark' value='Mark Assignment'>";
                     $str .= "</form>";
                 }
-    
+                $str .= "<hr>";
                 $str .= "</div>";
             }
         } else {

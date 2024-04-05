@@ -51,8 +51,15 @@ if (isset($_POST['upload'])) {
     if (in_array($fileActualExt, $allowed)) {
         if ($fileError === 0) {
             if ($fileSize < 1000000000000) {
-                $fileNameNew = uniqid(" ", true) . "." . $fileActualExt;
-                $fileDestination = 'uploads/' . $res . $fileNameNew;
+                // Get username
+                $username = $userLoggedIn;
+                // Get class code
+                $classCode = $classCode;
+                // Generate unique filename
+                $fileNameNew = $username . '_' . uniqid() . '_' . $classCode . '.' . $fileActualExt;
+                // Set file destination
+                $fileDestination = 'Uploaded by' . $fileNameNew;
+                // Move uploaded file
                 move_uploaded_file($fileTmpName, $fileDestination); //file uploaded okay
 
                 $post = new Post($con, $userLoggedIn, $classCode);
@@ -139,8 +146,11 @@ if (isset($_POST['mark'])) {
             }
             ?>
         </div>
-        <button id="assignment-button">Assignment</button>
-        <button id="post-button" style="display: none;">Post</button>
+        <div class="navigation-menu"> 
+            <button class="navigation-link" id="assignment-button">Assignment</button>
+            <button class="navigation-link" id="post-button">Post</button>
+        </div>
+
     </div>
 
     <script>
@@ -150,19 +160,33 @@ if (isset($_POST['mark'])) {
     const secondSection = document.getElementById('second');
 
     assignmentButton.addEventListener('click', function() {
-        firstSection.style.display = 'none';
-        secondSection.style.display = 'block';
-        assignmentButton.style.display = 'none';
-        postButton.style.display = 'block';
+        if (secondSection.style.display === 'none') {
+            firstSection.style.display = 'none';
+            secondSection.style.display = 'block';
+        } else {
+            secondSection.style.display = 'none';
+        }
     });
 
     postButton.addEventListener('click', function() {
-        firstSection.style.display = 'block';
+        if (firstSection.style.display === 'none') {
+            firstSection.style.display = 'block';
+            secondSection.style.display = 'none';
+        } else {
+            firstSection.style.display = 'none';
+        }
+    });
+
+    // Double-click event listener
+    assignmentButton.addEventListener('dblclick', function(event) {
         secondSection.style.display = 'none';
-        assignmentButton.style.display = 'block'; // Show assignment button when post button is clicked
-        postButton.style.display = 'none';
+    });
+
+    postButton.addEventListener('dblclick', function(event) {
+        firstSection.style.display = 'none';
     });
 </script>
+
 
 </body>
 </html>

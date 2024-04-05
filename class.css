@@ -4,8 +4,9 @@ body {
     justify-content: center;
     flex-direction: row;
     min-height: 100vh;
-    gap: 4rem;
+    gap: 2rem;
     background-color: #67b3f0;
+    margin: 6rem;
 }
 
 .Wrapper2 {
@@ -43,13 +44,37 @@ body {
 }
 
 .main2 {
-    background: linear-gradient(62deg, #01c121, #04b19a, #01cfa6);
+    background: linear-gradient(62deg, #1662dd, #27a0f0, #01b0cf);
     animation: gradient 15s ease infinite;
     background-size: 400% 400%;
     padding: 20px;
-    width: 50%;
+    min-width: 30%;
+    max-width: 50%;
     color: #fcf5ed;
     border-radius: 10px;
+}
+
+.navigation-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.navigation-link {
+    padding: 12px 20px;
+    min-width: 7rem;
+    margin: 5px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.navigation-link:hover {
+    background-color: #0056b3;
 }
 
 #post_text_area,
@@ -81,6 +106,10 @@ body {
 }
 
 #second {
+    display: none;
+}
+
+#first {
     display: none;
 }
 

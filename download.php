@@ -1,6 +1,6 @@
 <?php
 // Get the file path from the URL parameter
-$filePath = $_GET['file'];
+$filePath = $_GET['files'];
 
 // Validate the file path (optional, for security)
 // You can add checks here to ensure the file path is within a specific directory or has a valid extension
