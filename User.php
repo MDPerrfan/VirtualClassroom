@@ -29,7 +29,6 @@ class User {
         return $row['first_name'] . " " . $row['last_name'];
     }
     public function isStudent($username_to_check) {
-        // Check if user2 is set and student_array is not null
         if(isset($this->user2) && isset($this->user2['student_array']) && $this->user2['student_array'] !== null) {
             $usernameComma = "," . $username_to_check . ",";
             if(strstr($this->user2['student_array'], $usernameComma) || $username_to_check == $this->user2['username']) {
@@ -37,7 +36,6 @@ class User {
             }
         }
     
-        // Check if code is set and student_array is not null
         if(isset($this->code) && isset($this->code['student_array']) && $this->code['student_array'] !== null) {
             $usernameComma = "," . $username_to_check . ",";
             if(strstr($this->code['student_array'], $usernameComma)) {
@@ -45,7 +43,7 @@ class User {
             }
         }
     
-        return false; // Return false if not a student
+        return false; 
     }
     
 }

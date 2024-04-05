@@ -18,38 +18,31 @@ class Post
 
     public function submitPost($body, $fileName, $fileDestination, $user_to)
     {
-        $body = strip_tags($body); //removes html tags 
+        $body = strip_tags($body);
         $body = mysqli_real_escape_string($this->con, $body);
-        $check_empty = preg_replace('/\s+/', '', $body); //Deletes all spaces 
+        $check_empty = preg_replace('/\s+/', '', $body);
 
         if ($check_empty != "" && $fileName == "") {
-            // Current date and time
+           
             $date_added = date("Y-m-d H:i:s");
-            // Get username
+         
             $added_by = $this->user_obj->getUsername();
             
-            // If user is on own class room, user_to is 'none'
             if ($added_by == $user_to) {
                 $user_to = 'none';
             }
 
-            // Insert post 
             $query = mysqli_query($this->con, "INSERT INTO posts VALUES('', '$check_empty', '$added_by','$this->code', '$user_to', '$date_added','','')");
         }
 
-        if ($fileName != "") {  //only assignment
-            // Current date and time
+        if ($fileName != "") { 
             $date_added = date("Y-m-d H:i:s");
-            // Get username
             $added_by = $this->user_obj->getUsername();
-            // If user is on own class room, user_to is 'none'
             if ($added_by == $user_to) {
                 $user_to = 'none';
             }
-
-            // Get course Code
             $course_code = $this->user_obj->getCourseCode();
-            // Insert post
+
             $query = mysqli_query($this->con, "INSERT INTO posts VALUES('', '$body', '$added_by','$this->code', '$user_to', '$date_added', '$fileName','$fileDestination',NULL)");
         }
     }
@@ -59,7 +52,7 @@ class Post
     
         $userLoggedIn = $this->user_obj->getUsername();
     
-        $str = ""; //String to return 
+        $str = "";
         $data_query = mysqli_query($this->con, "SELECT * FROM posts WHERE courseCode='$this->code' AND files ='none' ORDER BY id DESC");
     
         if (mysqli_num_rows($data_query) > 0) {
@@ -70,7 +63,6 @@ class Post
                 $added_by = $row['added_by'];
                 $date_time = $row['date_added'];
     
-                //Prepare user_to string so it can be included even if not posted to a user
                 if ($row['user_to'] == "none") {
                     $user_to = "";
                 } else {
@@ -111,14 +103,14 @@ class Post
     
                     // Timeframe
                     $date_time_now = date("Y-m-d H:i:s");
-                    $start_date = new DateTime($date_time); // Time of post
-                    $end_date = new DateTime($date_time_now); // Current time
-                    $interval = $start_date->diff($end_date); // Difference between dates 
+                    $start_date = new DateTime($date_time); 
+                    $end_date = new DateTime($date_time_now); 
+                    $interval = $start_date->diff($end_date);
                     if ($interval->y >= 1) {
                         if ($interval == 1)
-                            $time_message = $interval->y . " year ago"; //1 year ago
+                            $time_message = $interval->y . " year ago"; 
                         else
-                            $time_message = $interval->y . " years ago"; //1+ year ago
+                            $time_message = $interval->y . " years ago";
                     } else if ($interval->m >= 1) {
                         if ($interval->d == 0) {
                             $days = " ago";
@@ -187,7 +179,7 @@ class Post
     public function loadFiles()
     {
         $userLoggedIn = $this->user_obj->getUsername();
-        $str = ""; // String to return
+        $str = ""; 
     
         $data_query = mysqli_query($this->con, "SELECT * FROM posts WHERE courseCode='$this->code' AND files != 'none' ORDER BY id DESC");
     
@@ -200,14 +192,14 @@ class Post
                 $file = $row['files'];
                 $path = $row['fileDestination'];
                 $marks = $row['marks']; 
-                // Add the HTML for displaying the file
+                
                 $str .= "<div class='file'>";
                 $str .= "<a style='text-decoration:none;color:maroon;font-size:1.4rem;' href='download.php?file=$path' download='$path'>$path</a>";
                 $str .= "<p>$body</p>";
                 if ($marks !== null) {
                     $str .= "<p style='color:maroon;font-weight:700;'>Marks: $marks</p>";
                 } else {
-                    // Add the marking form only if marks are not present
+                    
                     $str .= "<form method='POST'>";
                     $str .= "<input type='hidden' name='post_id' value='$id'>";
                     $str .= "<input style='font-size:1.2rem;border-radius:3px;border:none;margin:3px;' type='number' name='marks' placeholder='Enter marks'>";
@@ -227,11 +219,10 @@ class Post
     
     public function markAssignment($postId, $marks)
     {
-        // Sanitize input data
+        
         $postId = mysqli_real_escape_string($this->con, $postId);
         $marks = mysqli_real_escape_string($this->con, $marks);
     
-        // Update the marks in the database
         $query = "UPDATE posts SET marks = '$marks' WHERE id = '$postId'";
         $result = mysqli_query($this->con, $query);
     }
@@ -239,7 +230,7 @@ class Post
 public function loadFiles1()
 {
 $userLoggedIn = $this->user_obj->getUsername();
-$str = ""; // String to return
+$str = ""; 
 
 $data_query = mysqli_query($this->con, "SELECT * FROM posts WHERE courseCode='$this->code' AND files != 'none' ORDER BY id DESC");
 
@@ -252,7 +243,7 @@ if (mysqli_num_rows($data_query) > 0) {
         $file = $row['files'];
         $path = $row['fileDestination'];
         $marks = $row['marks'];
-        // Add the HTML for displaying the file
+      
         $str .= "<div class='file'>";
         $str .= "<h3>$path</h3>";
         $str .= "<p>$body</p>";

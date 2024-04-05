@@ -142,8 +142,6 @@
             <input type="submit" name="postComment<?php echo $post_id; ?>" value="Post">
 
         </form>
-
-        <!-- Load comments -->
         <?php 
 		$get_comments = mysqli_query($con, "SELECT * FROM comments WHERE post_id='$post_id' ORDER BY id DESC");
 		$count = mysqli_num_rows($get_comments);
@@ -168,14 +166,14 @@
 
 				//Timeframe
 				$date_time_now = date("Y-m-d H:i:s");
-				$start_date = new DateTime($date_added); //Time of post
-				$end_date = new DateTime($date_time_now); //Current time
-				$interval = $start_date->diff($end_date); //Difference between dates 
+				$start_date = new DateTime($date_added);
+				$end_date = new DateTime($date_time_now); 
+				$interval = $start_date->diff($end_date);  
 				if ($interval->y >= 1) {
 					if ($interval == 1)
-						$time_message = $interval->y . " year ago"; //1 year ago
+						$time_message = $interval->y . " year ago"; 
 					else
-						$time_message = $interval->y . " years ago"; //1+ year ago
+						$time_message = $interval->y . " years ago"; 
 				} else if ($interval->m >= 1) {
 					if ($interval->d == 0) {
 						$days = " ago";

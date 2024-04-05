@@ -9,31 +9,20 @@ $date = "";
 $error_array= array();
 if(isset($_POST['register_button']))
 {
-	//Registratin form values
-
-    //first name
     $fname = strip_tags($_POST['reg_fname']); 
     $fname = str_replace(' ', '', $fname); 
     $fname = ucfirst(strtolower($fname)); 
     $_SESSION['reg_fname'] = $fname;
-
-      //last name
     $lname = strip_tags($_POST['reg_lname']);
     $lname = str_replace(' ', '', $lname);
     $lname = ucfirst(strtolower($lname)); 
      $_SESSION['reg_lname'] = $lname;
-
-    //email
     $em = strip_tags($_POST['reg_email']); 
     $em = str_replace(' ', '', $em);
     $_SESSION['reg_email'] = $em;
-
-     //email 2
     $em2 = strip_tags($_POST['reg_email2']); 
     $em2 = str_replace(' ', '', $em2); 
     $_SESSION['reg_email2'] = $em2;
-
-      //password
     $password = strip_tags($_POST['reg_password']); 
     $password2 = strip_tags($_POST['reg_password2']); 
 
@@ -44,8 +33,6 @@ if(isset($_POST['register_button']))
 	 	if(filter_var($em, FILTER_VALIDATE_EMAIL)){
 
 	 		$em = filter_var($em, FILTER_VALIDATE_EMAIL);
-             
-             //check if email already exsists
 	 		$e_check = mysqli_query($con, "SELECT email FROM users WHERE email ='$em'");
              
              $num_rows = mysqli_num_rows($e_check);
@@ -69,9 +56,7 @@ if(isset($_POST['register_button']))
 
 
      if(empty($error_array)){
-       $password = md5($password); //Encrypt password 
-
-       //Generate username 
+       $password = md5($password);
        $username = strtolower($fname . "_" . $lname );
        $check_username_query = mysqli_query($con, "SELECT username FROM users WHERE username = '$username'");
 

@@ -9,7 +9,7 @@ $sec = "";
 $body = "";
 $post_id = "";
 
-//fetching class room details
+
 $classCode = $_GET['classCode'];
 $user_details_query = mysqli_query($con, "SELECT * FROM createclass WHERE courseCode='$classCode'");
 $user_array = mysqli_fetch_array($user_details_query);
@@ -20,18 +20,15 @@ $classMates = str_replace(',', ' ', $classMates);
 $array = explode(" ", $classMates);
 $classID = $user_array['id'];
 
-//fetching teacher details
 $teacherName = $user_array['username'];
 $user_details_query2 = mysqli_query($con, "SELECT * FROM users WHERE username='$teacherName'");
 $teacherDetails = mysqli_fetch_array($user_details_query2);
 
-//when hitting the post 
 if (isset($_POST['post'])) {
     $post = new Post($con, $userLoggedIn, $classCode);
     $post->submitPost($_POST['post_text'], 'none', 'none', $teacherName);
 }
 
-//when uploading files
 if (isset($_POST['upload'])) {
 
     $file = $_FILES['file'];
@@ -51,20 +48,19 @@ if (isset($_POST['upload'])) {
     if (in_array($fileActualExt, $allowed)) {
         if ($fileError === 0) {
             if ($fileSize < 1000000000000) {
-                // Get username
+      
                 $username = $userLoggedIn;
-                // Get class code
+ 
                 $classCode = $classCode;
-                // Generate unique filename
+      
                 $fileNameNew = $username . '_' . uniqid() . '_' . $classCode . '.' . $fileActualExt;
-                // Set file destination
+   
                 $fileDestination = 'Uploaded by' . $fileNameNew;
-                // Move uploaded file
-                move_uploaded_file($fileTmpName, $fileDestination); //file uploaded okay
+                move_uploaded_file($fileTmpName, $fileDestination);
 
                 $post = new Post($con, $userLoggedIn, $classCode);
                 $post->submitPost($_POST['assignment_text'], $fileNameNew, $fileDestination,$teacherName);
-                //$post->getFileDestination($fileDestination); 
+
 
                 header("Location: insideClassroom.php?classCode=$classCode&uploadsuccess");
             } else {
@@ -83,9 +79,6 @@ $checkTeaching = $classManager->checkTeachingClass();
 if (isset($_POST['mark'])) {
     $postID = $_POST['post_id'];
     $marks = $_POST['marks'];
-
-    // Perform database operations to store marks
-    // Assuming you have a function like markAssignment in your Post class
     $post = new Post($con, $userLoggedIn, $classCode);
     $post->markAssignment($postID, $marks);
 }
@@ -176,8 +169,6 @@ if (isset($_POST['mark'])) {
             firstSection.style.display = 'none';
         }
     });
-
-    // Double-click event listener
     assignmentButton.addEventListener('dblclick', function(event) {
         secondSection.style.display = 'none';
     });
