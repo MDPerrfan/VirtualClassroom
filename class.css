@@ -1,21 +1,17 @@
 body {
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-direction: row;
+    flex-direction: column;
     min-height: 100vh;
-    gap: 2rem;
     background-color: #67b3f0;
-    margin: 6rem;
 }
 
 .Wrapper2 {
-    margin-top: 6rem;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 2rem;
+    width: 100%;
 }
 
 .user_details {
@@ -23,11 +19,13 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    width: 20rem;
+    margin-top: 5rem;
+    width: 80%;
     padding: 20px;
     border-radius: 10px;
     font-size: 1.4rem;
     color: #ffffff;
+    position: sticky;
 }
 
 .assignment_box {
@@ -41,15 +39,15 @@ body {
     border-radius: 5px;
     font-size: 1.4rem;
     color: #2c2c2c;
+    display: none;
 }
 
 .main2 {
-    background: linear-gradient(62deg, #1662dd, #27a0f0, #01b0cf);
+    background: linear-gradient(62deg, #ef4967, #27a0f0, #01b0cf);
     animation: gradient 15s ease infinite;
     background-size: 400% 400%;
+    width: 80%;
     padding: 20px;
-    min-width: 30%;
-    max-width: 50%;
     color: #fcf5ed;
     border-radius: 10px;
 }
@@ -61,6 +59,7 @@ body {
     padding: 10px;
     border-radius: 5px;
     text-align: center;
+    align-items: center;
 }
 
 .navigation-link {
@@ -71,6 +70,7 @@ body {
     color: white;
     border-radius: 5px;
     text-decoration: none;
+    width: 50%;
 }
 
 .navigation-link:hover {
@@ -95,6 +95,11 @@ body {
     color: white;
     border: none;
     border-radius: 5px;
+    min-width: 6rem;
+}
+
+#post_button {
+    min-width: 6rem;
 }
 
 #assignment-upload-button:hover {

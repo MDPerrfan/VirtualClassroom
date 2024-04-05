@@ -98,16 +98,19 @@ if (isset($_POST['mark'])) {
         <p style='line-height:30px; display: inline-block;'><b>Section:</b> <?php echo $sec ?>
             <br>
             <b>Class Code:</b> <?php echo $classCode ?>
-        </p>
-    </div>
-    <div class="people_column">
-       <h4>Instructor:</h4><a href="<?php echo $teacherName; ?>"><img src='<?php echo $teacherDetails['profilePic'] ?>' width='40'><?php echo $teacherDetails['first_name'] . " " . $teacherDetails['last_name'] ?></a>
-        <br>
-    <?php 
-        $classMates = $user_array['student_array'];
-        $classMates = str_replace(',', ' ', $classMates);
-        echo "<p><b>Class Members:</b> $classMates <br></p>";
-        ?>
+            <br>
+            <b>Instructor:</b><?php echo $teacherDetails['first_name'] . " " . $teacherDetails['last_name'] ?>
+            <br>
+            <div class="people_column">
+            <?php 
+                $classMates = $user_array['student_array'];
+                $classMates = str_replace(',', ' ', $classMates);
+                echo "<p><b>Class Members:</b> $classMates <br></p>";
+             ?>
+             </div>
+             <br>
+            <button id="showStudentsButton">Students</button>
+            </p>
     </div>
 </div>
 <div class="main2">
@@ -143,9 +146,9 @@ if (isset($_POST['mark'])) {
             <button class="navigation-link" id="assignment-button">Assignment</button>
             <button class="navigation-link" id="post-button">Post</button>
         </div>
-
     </div>
 
+   
     <script>
     const assignmentButton = document.getElementById('assignment-button');
     const postButton = document.getElementById('post-button');
@@ -177,7 +180,19 @@ if (isset($_POST['mark'])) {
         firstSection.style.display = 'none';
     });
 </script>
+<script>
+const showStudentsButton = document.getElementById('showStudentsButton');
+const peopleColumn = document.querySelector('.people_column');
 
+showStudentsButton.addEventListener('click', function() {
+    // Toggle the visibility of people_column
+    if (peopleColumn.style.display === 'none') {
+        peopleColumn.style.display = 'block';
+    } else {
+        peopleColumn.style.display = 'none';
+    }
+});
+</script>
 
 </body>
 </html>
