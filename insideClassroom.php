@@ -185,7 +185,6 @@ const showStudentsButton = document.getElementById('showStudentsButton');
 const peopleColumn = document.querySelector('.people_column');
 
 showStudentsButton.addEventListener('click', function() {
-    // Toggle the visibility of people_column
     if (peopleColumn.style.display === 'none') {
         peopleColumn.style.display = 'block';
     } else {
